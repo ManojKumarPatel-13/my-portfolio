@@ -1,0 +1,328 @@
+:root {
+  --bg-primary: #0b0c10;
+  --bg-secondary: #16171d;
+  --text-primary: #eaeaea;
+  --text-secondary: #95989a;
+  --text-muted: #5c5e62;
+  --accent: #ffb347;
+  --accent-glow: rgba(255, 179, 71, 0.15);
+  --card-border: #24262e;
+
+  --font-display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+}
+
+body.light-theme {
+  --bg-primary: #fdfbf7;
+  --bg-secondary: #f4f1ea;
+  --text-primary: #232529;
+  --text-secondary: #5a5d64;
+  --text-muted: #9e9b95;
+  --accent: #b25e2b;
+  --accent-glow: rgba(178, 94, 43, 0.1);
+  --card-border: #e6e2d8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+/* =========================================================
+    Contact and FAQ Section
+========================================================= */
+
+section.contact-faq {
+  padding: 8rem 1.5rem;
+  background: var(--bg-primary);
+}
+
+div.contact-faq__inner {
+  max-width: 1100px;
+  margin: 0px auto;
+}
+
+div.section-head {
+  text-align: center;
+  margin-bottom: 4.5rem;
+}
+
+span.section-head__tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.08rem;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+h2.section-head__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
+}
+
+p.section-head__text {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 480px;
+  margin: 0px auto;
+  line-height: 1.6;
+}
+
+div.grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4px;
+  align-items: start;
+}
+
+/* Contact Form */
+div.console {
+  background: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+div.console__head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid var(--card-border);
+}
+
+span.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 0.6;
+}
+span.dot--red {
+  background: #ff5f56;
+}
+span.dot--green {
+  background: #27c93f;
+}
+span.dot--amber {
+  background: #ffbd2e;
+}
+
+span.console__path {
+  margin-left: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+div.console__status {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 1.5rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+span.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0px 0px 8px var(--accent);
+  flex-shrink: 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+form.console-form {
+  padding: 1.75rem 1.5rem 2rem;
+}
+
+div.field {
+  position: relative;
+  margin: 1.75rem;
+}
+
+div.field label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+div.field input,
+div.field textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-style: 1rem;
+  padding: 0.4rem 0.1rem;
+  resize: vertical;
+}
+
+div.field textarea {
+  min-height: 90px;
+}
+
+span.field__line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--card-border);
+}
+
+span.field__line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 1.5px;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow);
+  transition: width 0.3s ease;
+}
+
+div.field input:focus ~ span.field__line::after,
+div.field textarea:focus ~ span.field__line::after {
+  width: 100%;
+}
+
+span.field__error {
+  display: block;
+  min-height: 1.1rem;
+  font-size: 0.78rem;
+  color: #ff7a7a;
+  margin-top: 0.35rem;
+}
+
+button.send-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--accent);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: 6px;
+  padding: 0.85rem 1.6rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+button.send-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 24px var(--accent-glow);
+}
+button.send-btn:active {
+  transform: translateY(0);
+}
+button.send-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+span.send-btn__arrow {
+  transition: transfrom 0.2s ease;
+}
+button.send-btn:hover span.send-btn__arrow {
+  transform: translateX(3px);
+}
+
+.form-feedback {
+  min-height: 1.3rem;
+  font-size: 0.85rem;
+  margin: 0.9rem 0 0;
+  font-family: var(--font-mono);
+}
+p.from-feedback.success {
+  color: #6fcf7a;
+}
+p.from-feedback.error {
+  color: #ff7a7a;
+}
+
+/* Socials */
+div.socials {
+  border-top: 1px solid var(--card-border);
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+span.socials__label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+div.socials__row {
+  display: flex;
+  gap: 0.9rem;
+}
+
+a.social-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  color: var(--text-secondary);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+a.social-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+a.social-icon:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}

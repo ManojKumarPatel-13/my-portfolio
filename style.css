@@ -87,7 +87,7 @@ p.section-head__text {
 div.grid {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
-  gap: 4px;
+  gap: 4rem;
   align-items: start;
 }
 
@@ -166,7 +166,7 @@ form.console-form {
 
 div.field {
   position: relative;
-  margin: 1.75rem;
+  margin-bottom: 1.75rem;
 }
 
 div.field label {
@@ -325,4 +325,160 @@ a.social-icon:hover {
   color: var(--accent);
   border-color: var(--accent);
   transform: translateY(-2px);
+}
+
+/* FAQ Section */
+h3.faq__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem;
+}
+
+div.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+details.faq-item {
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  background: var(--bg-secondary);
+  overflow: hidden;
+}
+
+details.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1rem 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  user-select: none;
+}
+
+details.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+span.faq-item__marker {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+details.faq-item[open] span.faq-item__marker {
+  transform: rotate(90deg);
+}
+
+span.faq-item__question {
+  font-size: 0.95rem;
+}
+
+div.faq-item__answer {
+  padding: 0 1.1rem 1.1rem 2.6rem;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+div.faq-item__answer p {
+  margin: 0;
+}
+
+.faq-item__answer-wrap {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.28s ease;
+}
+
+details.faq-item[open] .faq-item__answer-wrap {
+  height: auto;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--card-border);
+  padding: 3.5rem 1.5rem 2.5rem;
+  text-align: center;
+  position: relative;
+}
+
+div.footer__inner {
+  min-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button.back-to-top {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--card-border);
+  background: var(--bg-primary);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+button.back-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 16px var(--accent-glow);
+}
+
+button.back-to-top svg {
+  width: 18px;
+  height: 18px;
+}
+
+p.footer-line {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin: 0 0 1.5rem;
+}
+
+div.footer-signature {
+  width: 130px;
+  height: 110px;
+  opacity: 0.95;
+  margin-bottom: 1.25rem;
+  -webkit-mask-image: url("assets/signature.png");
+  mask-image: url("assets/signature.png");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  background: var(--accent);
+  transform: rotate(270deg) scale(2.3);
+}
+
+div.footer-meta {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+div.footer-meta__dot {
+  opacity: 0.6;
 }

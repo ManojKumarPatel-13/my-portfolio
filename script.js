@@ -31,3 +31,67 @@ function validateField(key) {
 Object.keys(fields).forEach((key) => {
     fields[key].el.addEventListener('blur', () => validateField(key));
 })
+
+// FAQ
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach((item) => {
+    const summary = item.querySelector('summary');
+
+    summary.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const isOpen = item.hasAttribute('open');
+
+        // Close any other open items first (comment out this block if you
+        // want multiple FAQ items open at the same time)
+        faqItems.forEach((other) => {
+            if (other !== item && other.hasAttribute('open')) {
+                closeItem(other);
+            }
+        });
+
+        if (isOpen) {
+            closeItem(item);
+        } else {
+            openItem(item);
+        }
+    });
+});
+
+function openItem(item) {
+    item.setAttribute('open', '');
+    const answer = item.querySelector('.faq-item__answer');
+    const height = answer.scrollHeight;
+    answer.style.height = '0px';
+    requestAnimationFrame(() => {
+        answer.style.transition = 'height 0.28s ease';
+        answer.style.height = height + 'px';
+    });
+    answer.addEventListener('transitionend', function handler() {
+        answer.style.height = '';
+        answer.removeEventListener('transitionend', handler);
+    });
+}
+
+function closeItem(item) {
+    const answer = item.querySelector('.faq-item__answer');
+    const height = answer.scrollHeight;
+    answer.style.height = height + 'px';
+    requestAnimationFrame(() => {
+        answer.style.transition = 'height 0.28s ease';
+        answer.style.height = '0px';
+    });
+    answer.addEventListener('transitionend', function handler() {
+        item.removeAttribute('open');
+        answer.style.height = '';
+        answer.removeEventListener('transitionend', handler);
+    });
+}
+
+// Footer
+document.getElementById('year').textContent = new Date().getFullYear();
+
+document.getElementById('back-to-top').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+})

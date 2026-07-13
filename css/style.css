@@ -473,8 +473,8 @@ div.footer-signature {
   height: 110px;
   opacity: 0.95;
   margin-bottom: 1.25rem;
-  -webkit-mask-image: url("assets/signature.png");
-  mask-image: url("assets/signature.png");
+  -webkit-mask-image: url("../assets/signature.png");
+  mask-image: url("../assets/signature.png");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-repeat: no-repeat;

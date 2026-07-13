@@ -38,7 +38,16 @@ Object.keys(fields).forEach((key) => {
 })
 
 form.addEventListener('submit', async (e) => {
-    e.preventDefault()
+    e.preventDefault();
+    hasAttemptedSubmit = true;
+
+    const validations = Object.keys(fields).map(validateField);
+    const isValid = validations.every(Boolean);
+    if (!isValid) {
+        feedback.textContent = 'Please fix the highlighted fields.';
+        feedback.className = 'form-feedback error';
+        return;
+    }
 
     sendBtn.disabled = true
     const originalText = btnText.textContent;

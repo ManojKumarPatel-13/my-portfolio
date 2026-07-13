@@ -1,6 +1,7 @@
 const form = document.getElementById('contact-form');
 const sendBtn = document.getElementById('send-btn');
 const feedback = document.getElementById('form-feedback');
+const btnText = sendBtn.querySelector('.send-btn__text');
 
 const fields = {
     name: { el: document.getElementById('name'), errorEl: document.getElementById('name-error') },
@@ -28,8 +29,51 @@ function validateField(key) {
     return !message;
 }
 
+let hasAttemptedSubmit = false;
+
 Object.keys(fields).forEach((key) => {
-    fields[key].el.addEventListener('blur', () => validateField(key));
+    fields[key].el.addEventListener('blur', () => {
+        if (hasAttemptedSubmit) validateField(key)
+    });
+})
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault()
+
+    sendBtn.disabled = true
+    const originalText = btnText.textContent;
+    btnText.textContent = "Sending..."
+    feedback.textContent = '';
+
+    const formData = new FormData(form);
+    const json = JSON.stringify(Object.fromEntries(formData));
+
+    try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+
+        const result = await response.json()
+
+        if (result.success) {
+            feedback.textContent = 'Message Sent Successfully!';
+            feedback.className = 'form-feedback success';
+            form.reset();
+        } else {
+            throw new Error();
+        }
+    } catch (error) {
+        feedback.textContent = 'Something went wrong. Please try again.';
+        feedback.className = 'form-feedback error';
+    } finally {
+        sendBtn.disabled = false;
+        btnText.textContent = originalText;
+    }
 })
 
 // FAQ
@@ -43,8 +87,6 @@ faqItems.forEach((item) => {
 
         const isOpen = item.hasAttribute('open');
 
-        // Close any other open items first (comment out this block if you
-        // want multiple FAQ items open at the same time)
         faqItems.forEach((other) => {
             if (other !== item && other.hasAttribute('open')) {
                 closeItem(other);

@@ -38,6 +38,9 @@
                     </div>
 
                     <form id="contact-form" class="console-form" novalidate>
+                        <input type="hidden" name="access_key" value="df9736d9-8f65-4b76-b60b-5e45f2ec49d3">
+                        <input type="checkbox" name="botcheck" style="display: none;">
+
                         <div class="field">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required autocomplete="name" />
@@ -46,14 +49,14 @@
                         </div>
 
                         <div class="field">
-                            <label for="name">Email</label>
+                            <label for="email">Email</label>
                             <input type="email" id="email" name="email" required autocomplete="email" />
                             <span class="field__line"></span>
                             <span class="field__error" id="email-error"></span>
                         </div>
 
                         <div class="field">
-                            <label for="name">Message</label>
+                            <label for="message">Message</label>
                             <textarea id="message" name="message" rows="4" required></textarea>
                             <span class="field__line"></span>
                             <span class="field__error" id="message-error"></span>

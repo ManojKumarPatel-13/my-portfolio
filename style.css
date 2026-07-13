@@ -40,6 +40,13 @@ body {
     color 0.3s ease;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
 /* =========================================================
     Contact and FAQ Section
 ========================================================= */
@@ -63,7 +70,7 @@ span.section-head__tag {
   display: inline-block;
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  letter-spacing: 0.08rem;
+  letter-spacing: 0.08em;
   color: var(--accent);
   margin-bottom: 0.75rem;
 }
@@ -89,6 +96,13 @@ div.grid {
   grid-template-columns: 1.1fr 1fr;
   gap: 4rem;
   align-items: start;
+}
+
+@media (max-width: 860px) {
+  div.grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
 }
 
 /* Contact Form */
@@ -161,7 +175,7 @@ span.status-dot {
 }
 
 form.console-form {
-  padding: 1.75rem 1.5rem 2rem;
+  padding: 1.5rem 1.5rem 1.75rem;
 }
 
 div.field {
@@ -186,7 +200,7 @@ div.field textarea {
   outline: none;
   color: var(--text-primary);
   font-family: var(--font-body);
-  font-style: 1rem;
+  font-size: 1rem;
   padding: 0.4rem 0.1rem;
   resize: vertical;
 }
@@ -223,10 +237,21 @@ div.field textarea:focus ~ span.field__line::after {
 
 span.field__error {
   display: block;
-  min-height: 1.1rem;
   font-size: 0.78rem;
   color: #ff7a7a;
+  max-height: 0;
+  overflow: hidden;
+  margin-top: 0;
+  transition:
+    max-height 0.2s ease,
+    margin-top 0.2s ease;
+}
+.field.has-error .field__error {
+  max-height: 1.6rem;
   margin-top: 0.35rem;
+}
+.field.has-error .field__line {
+  background: rgba(255, 122, 122, 0.4);
 }
 
 button.send-btn {
@@ -263,7 +288,7 @@ button.send-btn:disabled {
 }
 
 span.send-btn__arrow {
-  transition: transfrom 0.2s ease;
+  transition: transform 0.2s ease;
 }
 button.send-btn:hover span.send-btn__arrow {
   transform: translateX(3px);
@@ -275,10 +300,10 @@ button.send-btn:hover span.send-btn__arrow {
   margin: 0.9rem 0 0;
   font-family: var(--font-mono);
 }
-p.from-feedback.success {
+p.form-feedback.success {
   color: #6fcf7a;
 }
-p.from-feedback.error {
+p.form-feedback.error {
   color: #ff7a7a;
 }
 
@@ -367,8 +392,8 @@ details.faq-item summary::-webkit-details-marker {
 span.faq-item__marker {
   font-family: var(--font-mono);
   color: var(--accent);
-  display: inline-block;
   transition: transform 0.25s ease;
+  flex-shrink: 0;
 }
 
 details.faq-item[open] span.faq-item__marker {
@@ -384,20 +409,11 @@ div.faq-item__answer {
   color: var(--text-secondary);
   font-size: 0.92rem;
   line-height: 1.6;
+  overflow: hidden;
 }
 
 div.faq-item__answer p {
   margin: 0;
-}
-
-.faq-item__answer-wrap {
-  height: 0;
-  overflow: hidden;
-  transition: height 0.28s ease;
-}
-
-details.faq-item[open] .faq-item__answer-wrap {
-  height: auto;
 }
 
 /* =========================================================
@@ -413,7 +429,7 @@ footer.footer {
 }
 
 div.footer__inner {
-  min-width: 600px;
+  max-width: 600px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;

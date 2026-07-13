@@ -55,6 +55,7 @@ export function initContactFaqAndFooter() {
         btnText.textContent = "Sending..."
         feedback.textContent = '';
 
+        // form submission
         const formData = new FormData(form);
         const json = JSON.stringify(Object.fromEntries(formData));
 

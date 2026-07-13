@@ -9,6 +9,43 @@
 </head>
 
 <body>
+
+    <!-- Tech Orbit: My Skills Section -->
+    <section class="orbit" id="tech-orbit">
+        <!-- Section Heading -->
+        <div class="orbit__head">
+            <span class="orbit__tag">My Toolkit</span>
+            <h2 class="orbit__title">Tools of the Trade</h2>
+            <p class="orbit__text">A visual map of the languages and frameworks I use to bring ideas to life.</p>
+        </div>
+
+        <!-- Rings -->
+        <div class="orbit-stage" id="orbit-stage">
+            <div class="ring ring-outer" data-ring="outer">
+                <div class="ring-spin" data-spin="outer"></div>
+            </div>
+
+            <div class="ring ring-middle" data-ring="middle">
+                <div class="ring-spin" data-spin="middle"></div>
+            </div>
+
+            <div class="ring ring-inner" data-ring="inner">
+                <div class="ring-spin" data-spin="inner"></div>
+            </div>
+        </div>
+
+        <div class="orbit-core" id="orbit-core">
+            <div class="orbit-core__idle" id="orbit-core-idle">
+                <span class="orbit-core__star">&#10022;</span>
+                <span class="orbit-core__hint">Hover a skill</span>
+            </div>
+            <div class="orbit-core__detail" id="orbit-core-detail">
+                <span class="orbit-core__name" id="orbit-core-name"></span>
+                <p class="orbit-core__desc" id="orbit-core-desc"></p>
+                <div class="orbit-core__level" id="orbit-core-level" aria-hidden="true"></div>
+            </div>
+        </div>
+    </section>
     <!-- Contact and FAQ Section -->
     <section class="contact-faq" id="contact">
         <div class="contact-faq__inner">
@@ -191,11 +228,14 @@
                         <details class="faq-item">
                             <summary>
                                 <span class="faq-item__marker">&gt;</span>
-                                <span class="faq-item__question"> What is your process for learning new technologies?</span>
+                                <span class="faq-item__question"> What is your process for learning new
+                                    technologies?</span>
                             </summary>
                             <div class="faq-item__answer">
-                                <p> I tackle new technologies in three distinct phases: first, a high-level run to understand 
-                                    the syntax and ecosystem; second, a deep dive into core architectural concepts; and finally,
+                                <p> I tackle new technologies in three distinct phases: first, a high-level run to
+                                    understand
+                                    the syntax and ecosystem; second, a deep dive into core architectural concepts; and
+                                    finally,
                                     a focus on implementation and polishing the codebase.</p>
                             </div>
                         </details>
@@ -209,7 +249,9 @@
         <div class="footer__inner">
 
             <button class="back-to-top" id="back-to-top" aria-label="Back to top">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M12 19V5M5 12l7-7 7 7" />
+                </svg>
             </button>
 
             <p class="footer-line">Thanks for scrolling this far. Let's build something.</p>

@@ -11,6 +11,13 @@
   --font-display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
   --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
   --font-mono: "JetBrains Mono", "Courier New", monospace;
+
+  /* Rings geometry */
+  --ring-outer-d: 620px;
+  --ring-middle-d: 440px;
+  --ring-inner-d: 260px;
+  --core-d: 190px;
+  --icon-d: 50px;
 }
 
 body.light-theme {
@@ -45,6 +52,280 @@ body {
     animation-duration: 0.001ms !important;
     transition-duration: 0.001ms !important;
   }
+}
+
+/* =========================================================
+    Tech Orbit Section
+========================================================= */
+
+section.orbit {
+  padding: 7rem 1.5rem 8rem;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.orbit__head {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+span.orbit__tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+h2.orbit__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.6rem;
+}
+
+p.orbit__text {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Tech Orbit and Rings */
+div.orbit-stage {
+  position: relative;
+  width: var(--ring-outer-d);
+  height: var(--ring-outer-d);
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid var(--card-border);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+div.ring-outer {
+  width: var(--ring-outer-d);
+  height: var(--ring-outer-d);
+}
+div.ring-middle {
+  width: var(--ring-middle-d);
+  height: var(--ring-middle-d);
+}
+div.ring-inner {
+  width: var(--ring-inner-d);
+  height: var(--ring-inner-d);
+}
+
+div.ring-spin {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Inner === Faster */
+div.ring-spin[data-spin="inner"] {
+  animation-name: spin-clockwise;
+  animation-duration: 46s;
+}
+div.ring-spin[data-spin="middle"] {
+  animation-name: spin-anticlockwise;
+  animation-duration: 78s;
+}
+div.ring-spin[data-spin="outer"] {
+  animation-name: spin-clockwise;
+  animation-duration: 118s;
+}
+
+@keyframes spin-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin-anticlockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+div.ring-spin.is-paused {
+  animation-play-state: paused;
+}
+
+/* JS Made Element */
+.icon-slot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--icon-d);
+  height: var(--icon-d);
+  margin: calc(var(--icon-d) / -2) 0 0 calc(var(--icon-d) / -2);
+}
+
+.icon-counter {
+  width: 100%;
+  height: 100%;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.icon-counter.is-paused {
+  animation-play-state: paused;
+}
+
+.icon-btn {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid var(--card-border);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.icon-btn svg {
+  width: 46%;
+  height: 46%;
+  display: block;
+}
+
+.icon-btn:hover,
+.icon-btn:focus-visible,
+.icon-btn.is-active {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.14);
+  box-shadow: 0 0 18px var(--accent-glow);
+  outline: none;
+}
+
+/* The Core */
+div.orbit-core {
+  position: relative;
+  width: var(--core-d);
+  height: var(--core-d);
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.25rem;
+  z-index: 2;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+}
+
+div.orbit-core__idle,
+div.orbit-core__detail {
+  position: absolute;
+  inset: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.25s ease;
+}
+
+div.orbit-core__idle {
+  opacity: 1;
+}
+
+span.orbit-core__star {
+  font-size: 1.6rem;
+  color: var(--accent);
+  animation: core-pulse 2.4s ease-in-out infinite;
+  margin-bottom: 0.5rem;
+}
+
+@keyframes core-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.92);
+  }
+}
+
+span.orbit-core__hint {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+div.orbit-core__detail {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.orbit-core.is-showing-detail .orbit-core__idle {
+  opacity: 0;
+}
+.orbit-core.is-showing-detail .orbit-core__detail {
+  opacity: 1;
+}
+
+span.orbit-core__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+p.orbit-core__desc {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 0 0 0.6rem;
+}
+
+div.orbit-core__level {
+  display: flex;
+  gap: 4px;
+}
+
+/* js created span for level */
+div.orbit-core__level span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--card-border);
+}
+
+div.orbit-core__level span.filled {
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent-glow);
 }
 
 /* =========================================================

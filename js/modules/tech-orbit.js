@@ -157,12 +157,12 @@ export function initTechOrbit() {
     function renderRing(ringName) {
         const items = ORBIT_DATA[ringName];
         const ringEl = document.querySelector(`.ring-${ringName}`)
-        const spinEL = ringEl.querySelector('.ring-spin')
+        const spinEl = ringEl.querySelector('.ring-spin')
         const config = RING_CONFIG[ringName]
         const radius = ringEl.getBoundingClientRect().width / 2
         // const radius = ringEl.offsetWidth / 2
 
-        spinEL.innerHTML = "";
+        spinEl.innerHTML = "";
 
         items.forEach((item, i) => {
             const angle = (360 / items.length) * i;
@@ -182,17 +182,34 @@ export function initTechOrbit() {
             svgBtn.type = "button";
             svgBtn.setAttribute("aria-label", item.title);
             svgBtn.dataset.ring = ringName;
-            svgBtn.appendChild(makeIconSvg(item.path));
+            svgBtn.appendChild(createIconSvg(item.path));
 
 
             // svg listners
             svgBtn.addEventListener("mouseenter", () => {
-                // if (!clickedSvg) preve
+                if (!clickedSvg) previewIcon(item, spinEl)
+            })
+
+            svgBtn.addEventListener("mouseleave", () => {
+                if (!clickedSvg) releaseRing(spinEl)
+            })
+
+            svgBtn.addEventListener("focus", () => {
+                if (!clickedSvg) previewIcon(item, spinEl)
+            })
+
+            svgBtn.addEventListener("blur", () => {
+                if (!clickedSvg) releaseRing(spinEl)
+            })
+
+            svgBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                toggleLock(svgBtn, item, spinEl);
             })
 
             counterRotator.appendChild(svgBtn)
             iconSlot.appendChild(counterRotator)
-            spinEL.appendChild(iconSlot)
+            spinEl.appendChild(iconSlot)
         });
     }
 
@@ -202,6 +219,99 @@ export function initTechOrbit() {
     const coreDesc = document.getElementById("orbit-core-desc");
     const coreLevel = document.getElementById("orbit-core-level");
 
-    
+    function displayDetails(item) {
+        coreName.textContent = item.title;
+        coreDesc.textContent = item.desc;
+        coreLevel.innerHTML = "";
+
+        for (let i = 0; i < 5; i++) {
+            const levelDot = document.createElement("span");
+            if (i < item.level) levelDot.classList.add("filled");
+            coreLevel.appendChild(levelDot);
+        }
+
+        core.classList.add("is-showing-detail");
+    }
+
+    function hideDetails() {
+        core.classList.remove("is-showing-detail");
+    }
+
+    function pauseRing(spinEl) {
+        spinEl.classList.add("is-paused");
+        spinEl
+            .querySelectorAll(".icon-counterRotator")
+            .forEach((e) => e.classList.add("is-paused"));
+    }
+
+    function resumeRing(spinEl) {
+        spinEl.classList.remove("is-paused");
+        spinEl
+            .querySelectorAll(".icon-counterRotator")
+            .forEach((e) => e.classList.remove("is-paused"));
+    }
+
+    function previewIcon(item, spinEl) {
+        pauseRing(spinEl);
+        displayDetails(item);
+    }
+
+    function releaseRing(spinEl) {
+        resumeRing(spinEl);
+        hideDetails();
+    }
+
+    function toggleLock(btn, item, spinEl) {
+        const wasClicked = clickedSvg === btn;
+
+        if (clickedSvg && clickedSvg !== btn) {
+            const prevRing = clickedSvg.dataset.ring;
+            const prevSpin = document.querySelector(`.ring-${prevRing} .ring-spin`);
+            resumeRing(prevSpin);
+            clickedSvg.classList.remove("is-active");
+        }
+
+        if (wasClicked) {
+            clickedSvg = null;
+            btn.classList.remove("is-active");
+            releaseRing(spinEl)
+            btn.blur()
+        } else {
+            clickedSvg = btn;
+            btn.classList.add("is-active");
+            previewIcon(item, spinEl)
+        }
+    }
+
+    // Release Ring Lock (Start Spinnig Again) on pressinc esc and clicking outside the stage
+    document.addEventListener("click", (e) => {
+        const ringName = clickedSvg.dataset.ring;
+        const spinEl = document.querySelector(`.ring-${ringName} .ring-spin`);
+        clickedSvg.classList.remove("is-active");
+        releaseRing(spinEl)
+        clickedSvg = null;
+    })
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && clickedSvg) {
+            clickedSvg.click();
+        }
+    });
+
+    // Render all rings
+    function renderAllRings() {
+        renderRing("inner");
+        renderRing("middle");
+        renderRing("outer");
+    }
+
+    renderAllRings();
+
+    // Debouncing on resize
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(renderAllRings, 200);
+    });
 }
 

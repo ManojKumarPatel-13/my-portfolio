@@ -180,18 +180,18 @@ div.ring-spin.is-paused {
   margin: calc(var(--icon-d) / -2) 0 0 calc(var(--icon-d) / -2);
 }
 
-.icon-counter {
+.icon-counterRotator {
   width: 100%;
   height: 100%;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
-.icon-counter.is-paused {
+.icon-counterRotator.is-paused {
   animation-play-state: paused;
 }
 
-.icon-btn {
+.icon-svgBtn {
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -210,15 +210,15 @@ div.ring-spin.is-paused {
     box-shadow 0.2s ease;
 }
 
-.icon-btn svg {
+.icon-svgBtn svg {
   width: 46%;
   height: 46%;
   display: block;
 }
 
-.icon-btn:hover,
-.icon-btn:focus-visible,
-.icon-btn.is-active {
+.icon-svgBtn:hover,
+.icon-svgBtn:focus-visible,
+.icon-svgBtn.is-active {
   color: var(--accent);
   border-color: var(--accent);
   transform: scale(1.14);

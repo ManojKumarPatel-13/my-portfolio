@@ -34,6 +34,8 @@ export function initValidation() {
         },
     ];
 
+    const AUTO_NEXT_MS = 3000;
+
     const quotesEl = document.getElementById('validation-quotes');
     const dotsEl = document.getElementById('validation-dots');
     const stageEl = document.getElementById('validation-stage');
@@ -73,7 +75,7 @@ export function initValidation() {
     }
 
     // Build the navigation dots
-    function rederDots() {
+    function renderDots() {
         QUOTES.forEach((_, i) => {
             const dot = document.createElement('button');
             dot.className = 'validation__dot';
@@ -91,6 +93,42 @@ export function initValidation() {
         });
     }
 
+    // Navigation dunction
+    function goTo(index) {
+        const slides = quotesEl.querySelectorAll('.quote-slide')
+        const dots = dotsEl.querySelectorAll('.validation__dot')
+
+        slides[current].classList.remove('is-active')
+        dots[current].classList.remove('is-active')
+
+        current = index;
+
+        slides[current].classList.add('is-active')
+        dots[current].classList.add('is-active')
+    }
+
+    function next() {
+        goTo((current + 1) % QUOTES.length)
+    }
+
+    function startTimer() {
+        timer = setInterval(next, AUTO_NEXT_MS); // call next in every 3000ms
+    }
+
+    function stopTimer() {
+        clearInterval(timer)
+    }
+
+    function restartTimer() {
+        stopTimer();
+        startTimer();
+    }
+
     renderSlides();
     renderDots();
+    startTimer();
+
+    // Pause auto-next while the cursor is on stage
+    stageEl.addEventListener('mouseenter', stopTimer);
+    stageEl.addEventListener('mouseleave', startTimer);
 }

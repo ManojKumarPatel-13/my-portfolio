@@ -59,11 +59,12 @@ body {
 ========================================================= */
 
 section.orbit {
-  padding: 7rem 1.5rem 8rem;
+  padding: 7rem 1.5rem 7rem;
   background: var(--bg-primary);
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-bottom: 0.67px solid var(--card-border);
 }
 
 div.orbit__head {
@@ -355,11 +356,12 @@ div.orbit-core__level span.filled {
 ========================================================= */
 
 section.validation {
-  padding: 8rem 1.5rem;
+  padding: 3rem 1.5rem;
   background: var(--bg-primary);
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-bottom: 0.67px solid var(--card-border);
 }
 
 div.validation__head {
@@ -483,6 +485,17 @@ div.validation__dots {
   background: var(--accent);
   box-shadow: 0 0 8px var(--accent-glow);
 }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .validation {
+    padding: 6rem 1.25rem;
+  }
+  .validation__quotes {
+    min-height: 260px;
+  }
+}
+
 /* =========================================================
     Contact and FAQ Section
 ========================================================= */

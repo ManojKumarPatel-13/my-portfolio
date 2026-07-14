@@ -34,7 +34,7 @@ export function initValidation() {
         },
     ];
 
-    const AUTO_NEXT_MS = 3000;
+    const AUTO_NEXT_MS = 5500;
 
     const quotesEl = document.getElementById('validation-quotes');
     const dotsEl = document.getElementById('validation-dots');

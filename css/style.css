@@ -328,6 +328,28 @@ div.orbit-core__level span.filled {
   box-shadow: 0 0 6px var(--accent-glow);
 }
 
+/* Responsivness of tech orbit */
+
+@media (max-width: 720px) {
+  :root {
+    --ring-outer-d: 340px;
+    --ring-middle-d: 250px;
+    --ring-inner-d: 155px;
+    --core-d: 120px;
+    --icon-d: 36px;
+  }
+
+  span.orbit-core__name {
+    font-size: 0.7rem;
+  }
+  p.orbit-core__desc {
+    font-size: 0.52rem;
+  }
+  .orbit__text {
+    font-size: 0.1rem;
+  }
+}
+
 /* =========================================================
     Contact and FAQ Section
 ========================================================= */

@@ -354,7 +354,7 @@ div.orbit-core__level span.filled {
     Validation Section
 ========================================================= */
 
-.validation {
+section.validation {
   padding: 8rem 1.5rem;
   background: var(--bg-primary);
   display: flex;
@@ -362,12 +362,12 @@ div.orbit-core__level span.filled {
   align-items: center;
 }
 
-.validation__head {
+div.validation__head {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.validation-head__tag {
+span.validation-head__tag {
   display: inline-block;
   font-family: var(--font-mono);
   font-size: 0.85rem;
@@ -376,7 +376,7 @@ div.orbit-core__level span.filled {
   margin-bottom: 0.75rem;
 }
 
-.validation-head__title {
+h2.validation-head__title {
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 5vw, 3.2rem);
   font-weight: 700;
@@ -393,7 +393,7 @@ p.validation-head__text {
 }
 
 /* Validation stage */
-.validation__stage {
+div.validation__stage {
   position: relative;
   max-width: 780px;
   width: 100%;
@@ -404,7 +404,7 @@ p.validation-head__text {
 }
 
 /* Validation Qoutes */
-.validation__quotes {
+div.validation__quotes {
   position: relative;
   width: 100%;
   min-height: 220px;
@@ -455,7 +455,7 @@ p.validation-head__text {
 }
 
 /* validation dots */
-.validation__dots {
+div.validation__dots {
   display: flex;
   gap: 0.6rem;
   margin-top: 2.5rem;

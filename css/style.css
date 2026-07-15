@@ -620,6 +620,22 @@ span#total-projects-count {
   color: var(--text-secondary);
 }
 
+/* Responsive */
+@media (max-width: 768px) {
+  div.project-card {
+    flex: 0 0 85vw;
+    padding: 20px;
+  }
+
+  span.projects-footer__hint {
+    display: none;
+  }
+
+  div.projects__footer {
+    justify-content: center;
+  }
+}
+
 /* =========================================================
     Validation Section
 ========================================================= */

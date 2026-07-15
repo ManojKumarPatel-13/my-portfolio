@@ -57,7 +57,7 @@
 
         
         <div class="projects__stage">
-            <button class="projects-nav projects-nav__prev" id="prev-project" aria-label="Previous proejct">
+            <button class="projects-nav projects-nav__prev" id="prev-project-btn" aria-label="Previous project">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
             </button>
 
@@ -65,9 +65,18 @@
                 
             </div>
 
-            <button class="projects-nav projects-nav__next" id="next-project" aria-label="Next proejct">
+            <button class="projects-nav projects-nav__next" id="next-project-btn" aria-label="Next project">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
             </button>
+        </div>
+
+        <div class="projects__footer">
+            <span class="projects-footer__hint">Use arrow keys or drag to navigate</span>
+            <div class="projects-footer__counter" aria-label="Project counter">
+                <span id="current-project-index">01</span>
+                <span class="counter-divider">/</span>
+                <span id="total-projects-count">07</span>
+            </div>
         </div>
     </section>
 

@@ -32,4 +32,30 @@ export function initBlogs() {
         },
     ];
 
+    const FAN_ANGLES = [-12, -7, -2, 5, 12];
+
+    // Build Cards
+    function buildCardHTML(post) {
+        return `
+            <span class="blogs-card__stamp">${post.callNumber}</span>
+            <h3 class="blogs-card__title">${post.title}</h3>
+            <p class="blogs-card__preview">${post.preview}</p>
+            <span class="blogs-card__cta">Read \u2192</span>
+            <span class="blogs-card__readtime">${post.readTime}</span>
+        `;
+    }
+
+    const fanEl = document.getElementById('blogs-fan');
+    const scrollEl = document.getElementById('blogs-scroll');
+
+    // Render Cards
+    POSTS.forEach((post, i) => {
+        const fanCard = document.createElement('article');
+        fanCard.className = 'blogs-card';
+        fanCard.tabIndex = 0;
+        fanCard.style.transform = `rotate(${FAN_ANGLES[i] ?? 0}deg)`;
+        fanCard.style.zIndex = i;
+        fanCard.innerHTML = buildCardHTML(post);
+        fanEl.appendChild(fanCard);
+    });
 }

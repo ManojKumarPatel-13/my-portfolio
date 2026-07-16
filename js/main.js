@@ -9,5 +9,5 @@ initTechOrbit()
 initTimeline()
 initProjects()
 initValidation()
-initBlogs
+initBlogs()
 initContactFaqAndFooter()

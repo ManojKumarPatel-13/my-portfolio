@@ -389,13 +389,12 @@ h2.timeline__title {
   font-size: clamp(2.2rem, 5vw, 3.2rem);
   font-weight: 700;
   letter-spacing: -0.02em;
-  margin: 0;
+  margin: 0 0 0.6rem;
 }
 
 p.timeline__text {
   color: var(--text-secondary);
   font-size: 1rem;
-  max-width: 480px;
   margin: 0;
   line-height: 1.6;
 }
@@ -424,6 +423,52 @@ p.timeline__text {
   perspective: 2600px;
   filter: drop-shadow(0 30px 70px rgba(0, 0, 0, 0.55));
 }
+
+.book-page {
+  position: absolute;
+  top: 0;
+  width: 51%;
+  height: 100%;
+  background: var(--page-bg);
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.book-page--left {
+  left: 0;
+  border-radius: 4px 0 0 4px;
+  filter: drop-shadow(-1px 0 1px rgba(0, 0, 0, 0.08));
+}
+.book-page--right {
+  right: 0;
+  border-radius: 0 4px 4px 0;
+  filter: drop-shadow(1px 0 1px rgba(0, 0, 0, 0.08));
+}
+
+/* Fixing the layout of pages with the imported images */
+.book-page--right,
+.book-leaf__face.is-right-side {
+  -webkit-mask-image: url("../assets/torn-edge-right.webp");
+  mask-image: url("../assets/torn-edge-right.webp");
+}
+.book-page--left,
+.book-leaf__face.is-left-side {
+  -webkit-mask-image: url("../assets/torn-edge-left.webp");
+  mask-image: url("../assets/torn-edge-left.webp");
+}
+.book-page,
+.book-leaf__face {
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.book-page--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 
 /* Navigation Buttons */
 .page-nav {

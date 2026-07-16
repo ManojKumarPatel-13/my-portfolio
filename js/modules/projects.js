@@ -13,7 +13,7 @@ export function initProjects() {
             projectId: 2,
             projectTitle: "Weather Dashboard",
             projectDescription: "A sleek, minimalist weather application providing real-time forecasts, air quality indices, and interactive radar charts.",
-            projectImgSrc: "https://picsum.photos",
+            projectImgSrc: "../../assets/paper-texture.jpg",
             tags: ["React", "Chart.js", "OpenWeather API", "CSS Modules"],
             liveLink: "https://vercel.app",
             githubLink: "https://github.com"
@@ -22,7 +22,7 @@ export function initProjects() {
             projectId: 3,
             projectTitle: "To-do App",
             projectDescription: "A high-performance task manager utilizing drag-and-drop mechanics, keyboard shortcuts, and local storage persistence.",
-            projectImgSrc: "https://picsum.photos",
+            projectImgSrc: "../../assets/paper-texture.jpg",
             tags: ["JavaScript", "HTML5 Canvas", "Framer Motion", "Tailwind"],
             liveLink: "https://vercel.app",
             githubLink: "https://github.com"
@@ -31,7 +31,7 @@ export function initProjects() {
             projectId: 4,
             projectTitle: "Img Editor",
             projectDescription: "A browser-based canvas editor allowing users to apply custom filters, crop dimensions, and adjust image matrices in real-time.",
-            projectImgSrc: "https://picsum.photos",
+            projectImgSrc: "../../assets/paper-texture.jpg",
             tags: ["TypeScript", "WebGL", "React Canvas", "Tailwind"],
             liveLink: "https://vercel.app",
             githubLink: "https://github.com"
@@ -40,7 +40,7 @@ export function initProjects() {
             projectId: 5,
             projectTitle: "Tech Terminal",
             projectDescription: "A lightning-fast tech news reader featuring infinite scroll, dynamic layout caching, and customizable RSS feed integration.",
-            projectImgSrc: "https://picsum.photos",
+            projectImgSrc: "../../assets/paper-texture.jpg",
             tags: ["React", "React Query", "Node.js", "Express"],
             liveLink: "https://vercel.app",
             githubLink: "https://github.com"
@@ -49,7 +49,7 @@ export function initProjects() {
             projectId: 6,
             projectTitle: "Linear Clone",
             projectDescription: "A meticulous front-end clone of the Linear issue tracker, focusing heavily on keyboard navigation and sub-millisecond page transitions.",
-            projectImgSrc: "https://picsum.photos",
+            projectImgSrc: "../../assets/paper-texture.jpg",
             tags: ["Next.js", "Zustand", "Tailwind CSS", "Shadcn UI"],
             liveLink: "https://vercel.app",
             githubLink: "https://github.com"
@@ -58,7 +58,7 @@ export function initProjects() {
             projectId: 7,
             projectTitle: "Vue Framework Simple Clone",
             projectDescription: "A lightweight, custom JavaScript reactivity engine designed from scratch to mimic Vue's core virtual DOM patching algorithm.",
-            projectImgSrc: "https://picsum.photos",
+            projectImgSrc: "../../assets/paper-texture.jpg",
             tags: ["Vanilla JS", "HTML5", "Vite", "Vitest"],
             liveLink: "https://vercel.app",
             githubLink: "https://github.com"

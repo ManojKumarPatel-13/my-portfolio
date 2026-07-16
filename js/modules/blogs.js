@@ -57,5 +57,12 @@ export function initBlogs() {
         fanCard.style.zIndex = i;
         fanCard.innerHTML = buildCardHTML(post);
         fanEl.appendChild(fanCard);
+
+        // Mobile
+        const scrollCard = document.createElement('article');
+        scrollCard.className = 'blogs-card';
+        scrollCard.tabIndex = 0;
+        scrollCard.innerHTML = buildCardHTML(post);
+        scrollEl.appendChild(scrollCard);
     });
 }

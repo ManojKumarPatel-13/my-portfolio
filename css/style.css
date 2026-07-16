@@ -943,7 +943,7 @@ div.validation__dots {
 /* =========================================================
     Blogs Section
 ========================================================= */
-.blogs {
+section.blogs {
   padding: 7rem 1.5rem 6rem;
   background: var(--bg-primary);
   display: flex;
@@ -952,12 +952,12 @@ div.validation__dots {
   border-bottom: 0.67px solid var(--card-border);
 }
 
-.blogs__head {
+div.blogs__head {
   text-align: center;
   margin-bottom: 4.5rem;
 }
 
-.blogs__tag {
+span.blogs__tag {
   display: inline-block;
   font-family: var(--font-mono);
   font-size: 0.85rem;
@@ -966,7 +966,7 @@ div.validation__dots {
   margin-bottom: 0.75rem;
 }
 
-.blogs__title {
+h2.blogs__title {
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 5vw, 3.2rem);
   font-weight: 700;
@@ -974,14 +974,14 @@ div.validation__dots {
   margin: 0 0 0.6rem;
 }
 
-.blogs__text {
+p.blogs__text {
   color: var(--text-secondary);
   font-size: 1rem;
   margin: 0;
 }
 
 /* Blogs Fan Card */
-.blogs__fan {
+div.blogs__fan {
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -989,7 +989,7 @@ div.validation__dots {
   width: 100%;
 }
 
-.blogs-card {
+article.blogs-card {
   position: relative;
   width: 200px;
   height: 270px;
@@ -1009,12 +1009,12 @@ div.validation__dots {
   flex-direction: column;
 }
 
-.blogs-card:first-child {
+article.blogs-card:first-child {
   margin-left: 0;
 }
 
-.blogs-card:hover,
-.blogs-card:focus-visible {
+article.blogs-card:hover,
+article.blogs-card:focus-visible {
   transform: rotate(0deg) translateY(-26px) scale(1.06) !important;
   box-shadow: 0 24px 40px rgba(0, 0, 0, 0.5);
   z-index: 20 !important;
@@ -1023,7 +1023,7 @@ div.validation__dots {
 
 /* Blogs Fan Card Content */
 
-.blogs-card::before {
+article.blogs-card::before {
   content: "";
   position: absolute;
   top: 2.6rem;
@@ -1032,7 +1032,7 @@ div.validation__dots {
   height: 1px;
   background: var(--card-rule);
 }
-.blogs-card::after {
+article.blogs-card::after {
   content: "";
   position: absolute;
   top: 0;
@@ -1042,7 +1042,7 @@ div.validation__dots {
   background: var(--card-rule);
 }
 
-.blogs-card__stamp {
+span.blogs-card__stamp {
   align-self: flex-start;
   font-family: var(--font-mono);
   font-size: 0.62rem;
@@ -1055,7 +1055,7 @@ div.validation__dots {
   text-transform: uppercase;
 }
 
-.blogs-card__title {
+h3.blogs-card__title {
   font-family: var(--font-serif), Georgia, serif;
   font-size: 1.02rem;
   font-weight: 600;
@@ -1068,7 +1068,7 @@ div.validation__dots {
   overflow: hidden;
 }
 
-.blogs-card__preview {
+p.blogs-card__preview {
   font-size: 0.76rem;
   line-height: 1.55;
   color: var(--card-ink-muted);
@@ -1080,7 +1080,7 @@ div.validation__dots {
   flex: 1;
 }
 
-.blogs-card__cta {
+span.blogs-card__cta {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   color: #8a4a2b;
@@ -1088,7 +1088,7 @@ div.validation__dots {
   margin-top: 0.6rem;
 }
 
-.blogs-card__readtime {
+span.blogs-card__readtime {
   position: absolute;
   bottom: 0.8rem;
   right: 0.7rem;
@@ -1104,11 +1104,11 @@ div.validation__dots {
 }
 
 /* Blogs Footer */
-.blogs__footer {
+div.blogs__footer {
   margin-top: 1rem;
 }
 
-.blogs__view-all {
+a.blogs__view-all {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -1123,15 +1123,53 @@ div.validation__dots {
     border-color 0.2s ease,
     color 0.2s ease;
 }
-.blogs__view-all:hover {
+a.blogs__view-all:hover {
   border-color: var(--accent);
   color: var(--accent);
 }
-.blogs__view-all-arrow {
+a.blogs__view-all-arrow {
   transition: transform 0.2s ease;
 }
-.blogs__view-all:hover .blogs__view-all-arrow {
+a.blogs__view-all:hover .blogs__view-all-arrow {
   transform: translateX(3px);
+}
+
+/* Mobile */
+.blogs__scroll {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  div.blogs__fan {
+    display: none;
+  }
+
+  div.blogs__scroll {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    width: 100%;
+    padding: 0.5rem 1.25rem 1.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  div.blogs__scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  div.blogs__scroll .blogs-card {
+    flex: 0 0 auto;
+    width: 78vw;
+    max-width: 260px;
+    margin-left: 0;
+    scroll-snap-align: start;
+    transform: none !important;
+  }
+  div.blogs__scroll .blogs-card:hover,
+  div.blogs__scroll .blogs-card:focus-visible {
+    transform: scale(1.02) !important;
+    z-index: auto !important;
+  }
 }
 
 /* =========================================================

@@ -55,6 +55,39 @@
             <h2 class="timeline__title">The Engineering Journey So Far</h2>
             <p class="timeline__text">Swipe, or use the arrows, to turn the page.</p>
         </div>
+
+        <!-- the book area -->
+        <div class="timeline__book-area" id="book-area">
+
+            <button class="page-nav page-nav--prev" id="nav-prev" aria-label="Previous page">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6" />
+                </svg>
+            </button>
+
+            <div class="book" id="book">
+                <div class="book-page book-page--left" id="page-left"></div>
+                <div class="book-page book-page--right" id="page-right"></div>
+
+                <!-- The turning simiulation -->
+                <div class="book-leaf" id="book-leaf">
+                    <div class="book-leaf__face book-leaf__face--front" id="leaf-front"></div>
+                    <div class="book-leaf__face book-leaf__face--back" id="leaf-back"></div>
+                </div>
+
+                <!-- Just for the shadow effect -->
+                <div class="book-spine" aria-hidden="true"></div>
+            </div>
+
+            <button class="page-nav page-nav--next" id="nav-next" aria-label="Next page">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
+            </button>
+            
+        </div>
+
+        <p class="timeline__progress" id="timeline-progress" aria-hidden="true"></p>
     </section>
 
 
@@ -63,7 +96,7 @@
 
         <div class="projects__head">
             <span class="projects-head__tag">// Projects</span>
-            <h2 class="projects-head__title">A Gallery Of Things Built</h2>
+            <h2 class="projects-head__title">A Gallery Of Things I Built</h2>
             <p class="projects-head__text">Click on any card to explore the case study and technical breakdown.</p>
         </div>
 

@@ -18,6 +18,13 @@
   --ring-inner-d: 260px;
   --core-d: 190px;
   --icon-d: 50px;
+
+  /* Timeline Pages */
+  --page-bg: #f2c79a;
+  --page-ink: #2b2721;
+  --page-ink-muted: #8a8375;
+  --leather-dark: #1c130c;
+  --leather-foil: #d9a84e;
 }
 
 body.light-theme {
@@ -355,7 +362,7 @@ div.orbit-core__level span.filled {
     Timeline Section
 ========================================================= */
 section.timeline {
-  padding: 3rem 1.5rem;
+  padding: 7rem 1.5rem;
   background: var(--bg-primary);
   display: flex;
   flex-direction: column;
@@ -365,7 +372,7 @@ section.timeline {
 
 div.timeline__head {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 span.timeline__tag {
@@ -387,11 +394,70 @@ h2.timeline__title {
 
 p.timeline__text {
   color: var(--text-secondary);
-  font-size: 1.05rem;
+  font-size: 1rem;
   max-width: 480px;
-  margin: 5px auto 0;
+  margin: 0;
   line-height: 1.6;
 }
+
+/* Book area and progress */
+.timeline__book-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.timeline__progress {
+  margin-top: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* The Book Container*/
+.book {
+  position: relative;
+  width: min(820px, 84vw);
+  aspect-ratio: 296 / 210; /* two A5 pages side by side */
+  perspective: 2600px;
+  filter: drop-shadow(0 30px 70px rgba(0, 0, 0, 0.55));
+}
+
+/* Navigation Buttons */
+.page-nav {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--card-border);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+.page-nav:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.08);
+}
+.page-nav:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+.page-nav svg {
+  width: 17px;
+  height: 17px;
+}
+
 /* =========================================================
     Projects Section
 ========================================================= */

@@ -9,14 +9,15 @@
 </head>
 
 <body>
-
     <!-- Tech Orbit: My Skills Section -->
     <section class="orbit" id="tech-orbit">
         <!-- Section Heading -->
         <div class="orbit__head">
             <span class="orbit__tag">// My Toolkit</span>
             <h2 class="orbit__title">Tools of the Trade</h2>
-            <p class="orbit__text">A visual map of the languages and frameworks I use.</p>
+            <p class="orbit__text">
+                A visual map of the languages and frameworks I use.
+            </p>
         </div>
 
         <!-- Rings -->
@@ -49,16 +50,16 @@
 
     <!-- Timeline -->
     <section class="timeline" id="timeline">
-
         <div class="timeline__head">
             <span class="timeline__tag">// Timeline</span>
             <h2 class="timeline__title">The Engineering Journey So Far</h2>
-            <p class="timeline__text">Swipe, or use the arrows, to turn the page.</p>
+            <p class="timeline__text">
+                Swipe, or use the arrows, to turn the page.
+            </p>
         </div>
 
         <!-- the book area -->
         <div class="timeline__book-area" id="book-area">
-
             <button class="page-nav page-nav--prev" id="nav-prev" aria-label="Previous page">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M15 18l-6-6 6-6" />
@@ -84,22 +85,20 @@
                     <path d="M9 18l6-6-6-6" />
                 </svg>
             </button>
-            
         </div>
 
         <p class="timeline__progress" id="timeline-progress" aria-hidden="true"></p>
     </section>
 
-
     <!-- Projects -->
     <section class="projects">
-
         <div class="projects__head">
             <span class="projects-head__tag">// Projects</span>
             <h2 class="projects-head__title">A Gallery Of Things I Built</h2>
-            <p class="projects-head__text">Click on any card to explore the case study and technical breakdown.</p>
+            <p class="projects-head__text">
+                Click on any card to explore the case study and technical breakdown.
+            </p>
         </div>
-
 
         <div class="projects__stage">
             <button class="projects-nav projects-nav__prev" id="prev-project-btn" aria-label="Previous project">
@@ -108,9 +107,7 @@
                 </svg>
             </button>
 
-            <div class="project__cards">
-
-            </div>
+            <div class="project__cards"></div>
 
             <button class="projects-nav projects-nav__next" id="next-project-btn" aria-label="Next project">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -135,14 +132,34 @@
         <div class="validation__head">
             <span class="validation-head__tag">// Validations</span>
             <h2 class="validation-head__title">In Their Words</h2>
-            <p class="validation-head__text">Click on the dots to navigate through the cards.</p>
+            <p class="validation-head__text">
+                Click on the dots to navigate through the cards.
+            </p>
         </div>
 
         <div class="validation__stage" id="validation-stage">
             <div class="validation__quotes" id="validation-quotes"></div>
             <div class="validation__dots" id="validation-dots" role="tablist" aria-label="Testimonial navigation"></div>
         </div>
+    </section>
 
+    <!-- Recent Blogs section -->
+    <section class="blogs" id="blog">
+        <div class="blogs__head">
+            <span class="blogs__tag">Blogs</span>
+            <h2 class="blogs__title">Latest of My Writings</h2>
+            <p class="blogs__text">
+                A running log of what I'm building, breaking, and reading.
+            </p>
+        </div>
+
+        <div class="blogs__fan" id="blogs-fan"></div>
+
+        <div class="blogs__footer">
+            <a href="/blog" class="blogs__view-all">
+                View All Posts <span class="blogs__view-all-arrow">&rarr;</span>
+            </a>
+        </div>
     </section>
 
     <!-- Contact and FAQ Section -->
@@ -174,8 +191,8 @@
                     </div>
 
                     <form id="contact-form" class="console-form" novalidate>
-                        <input type="hidden" name="access_key" value="df9736d9-8f65-4b76-b60b-5e45f2ec49d3">
-                        <input type="checkbox" name="botcheck" style="display: none;">
+                        <input type="hidden" name="access_key" value="df9736d9-8f65-4b76-b60b-5e45f2ec49d3" />
+                        <input type="checkbox" name="botcheck" style="display: none" />
 
                         <div class="field">
                             <label for="name">Name</label>
@@ -318,8 +335,9 @@
                                     obsessions?</span>
                             </summary>
                             <div class="faq-item__answer">
-                                <p> Pretty much every time. Ask me about the "just a weekend" project that's
-                                    now three months deep.
+                                <p>
+                                    Pretty much every time. Ask me about the "just a weekend"
+                                    project that's now three months deep.
                                 </p>
                             </div>
                         </details>
@@ -327,15 +345,17 @@
                         <details class="faq-item">
                             <summary>
                                 <span class="faq-item__marker">&gt;</span>
-                                <span class="faq-item__question"> What is your process for learning new
-                                    technologies?</span>
+                                <span class="faq-item__question">
+                                    What is your process for learning new technologies?</span>
                             </summary>
                             <div class="faq-item__answer">
-                                <p> I tackle new technologies in three distinct phases: first, a high-level run to
-                                    understand
-                                    the syntax and ecosystem; second, a deep dive into core architectural concepts; and
-                                    finally,
-                                    a focus on implementation and polishing the codebase.</p>
+                                <p>
+                                    I tackle new technologies in three distinct phases: first, a
+                                    high-level run to understand the syntax and ecosystem;
+                                    second, a deep dive into core architectural concepts; and
+                                    finally, a focus on implementation and polishing the
+                                    codebase.
+                                </p>
                             </div>
                         </details>
                     </div>
@@ -346,14 +366,15 @@
 
     <footer class="footer">
         <div class="footer__inner">
-
             <button class="back-to-top" id="back-to-top" aria-label="Back to top">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                     <path d="M12 19V5M5 12l7-7 7 7" />
                 </svg>
             </button>
 
-            <p class="footer-line">Thanks for scrolling this far. Let's build something.</p>
+            <p class="footer-line">
+                Thanks for scrolling this far. Let's build something.
+            </p>
 
             <div class="footer-signature" role="img" aria-label="Personal Signature"></div>
 

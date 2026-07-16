@@ -11,6 +11,7 @@
   --font-display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
   --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
   --font-mono: "JetBrains Mono", "Courier New", monospace;
+  --font-serif: "Source Serif 4", Georgia, serif;
 
   /* Rings geometry */
   --ring-outer-d: 620px;
@@ -25,6 +26,13 @@
   --page-ink-muted: #8a8375;
   --leather-dark: #1c130c;
   --leather-foil: #d9a84e;
+
+  /* Blogs Card */
+  --card-manila: #e9dbaa;
+  --card-manila-edge: #d8c68c;
+  --card-ink: #382b1b;
+  --card-ink-muted: #7a6b4e;
+  --card-rule: rgba(178, 60, 50, 0.35);
 }
 
 body.light-theme {
@@ -468,7 +476,6 @@ p.timeline__text {
   opacity: 0;
   pointer-events: none;
 }
-
 
 /* Navigation Buttons */
 .page-nav {
@@ -931,6 +938,46 @@ div.validation__dots {
   .validation__quotes {
     min-height: 260px;
   }
+}
+
+/* =========================================================
+    Blogs Section
+========================================================= */
+.blogs {
+  padding: 7rem 1.5rem 6rem;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 0.67px solid var(--card-border);
+}
+
+.blogs__head {
+  text-align: center;
+  margin-bottom: 4.5rem;
+}
+
+.blogs__tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.blogs__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.6rem;
+}
+
+.blogs__text {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin: 0;
 }
 
 /* =========================================================

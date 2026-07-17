@@ -12,6 +12,7 @@
   --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
   --font-mono: "JetBrains Mono", "Courier New", monospace;
   --font-serif: "Source Serif 4", Georgia, serif;
+  --font-hand: "Caveat", cursive;
 
   /* Rings geometry */
   --ring-outer-d: 620px;
@@ -67,6 +68,90 @@ body {
     animation-duration: 0.001ms !important;
     transition-duration: 0.001ms !important;
   }
+}
+
+/* =========================================================
+    About Me Section
+========================================================= */
+section.about {
+  padding: 7rem 1.5rem;
+  background: var(--bg-primary);
+}
+
+div.about__head {
+  max-width: 1100px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+span.about__tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+h2.about__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+p.about__text {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* grid */
+div.about__grid {
+  max-width: 1190px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* Parras */
+.about__parra p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: 0 0 1.4rem;
+}
+.about__parra p:last-child {
+  margin-bottom: 0;
+}
+.about__parra p:first-child {
+  color: var(--text-primary);
+}
+
+/* Deck */
+.about__deck {
+  position: relative;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-card {
+  position: absolute;
+  width: 240px;
+  height: 340px;
+  perspective: 1000px;
+  cursor: pointer;
+  transform: translate(var(--rest-x, 0), var(--rest-y, 0))
+    rotate(var(--rest-rot, 0deg));
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    z-index 0s 0.2s;
+  z-index: var(--card-index);
 }
 
 /* =========================================================

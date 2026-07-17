@@ -1,0 +1,65 @@
+<div class="about-card" data-card="tech">
+                    <div class="about-card__inner">
+                        <div class="about-card__face about-card__face--front">
+                            <span class="about-card__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                                    <rect x="3" y="4" width="18" height="13" rx="2" />
+                                    <path d="M2 20h20M9 9l2 2-2 2M13 13h3" />
+                                </svg>
+                            </span>
+                            <span class="about-card__label">Tech Lead</span>
+                        </div>
+                        <div class="about-card__face about-card__face--back">
+                            <p class="about-card__back-text"><!-- EDIT -->Leads with architecture-first thinking —
+                                believes most bugs are really design decisions that haven't been made yet.</p>
+                            <div class="about-card__tags">
+                                <span>Systems</span><span>Mentorship</span><span>Clean Code</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-card" data-card="reader">
+                    <div class="about-card__inner">
+                        <div class="about-card__face about-card__face--front">
+                            <span class="about-card__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                                    <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15Z" />
+                                    <path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20" />
+                                </svg>
+                            </span>
+                            <span class="about-card__label">Reader</span>
+                        </div>
+                        <div class="about-card__face about-card__face--back">
+                            <p class="about-card__back-text"><!-- EDIT -->Mostly literary fiction and long-form
+                                nonfiction — drawn to writers who trust the reader to keep up.</p>
+                            <div class="about-card__tags">
+                                <span>Fiction</span><span>Essays</span><span>Slow Reads</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-card" data-card="status">
+                    <div class="about-card__inner">
+                        <div class="about-card__face about-card__face--front">
+                            <span class="about-card__icon about-card__icon--pulse">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                                    <circle cx="12" cy="12" r="9" />
+                                    <path d="M12 7v5l3 3" />
+                                </svg>
+                            </span>
+                            <span class="about-card__label">Currently</span>
+                        </div>
+                        <div class="about-card__face about-card__face--back">
+                            <div class="about-card__status-row">
+                                <span class="about-card__status-label">Reading</span>
+                                <span class="about-card__status-value"><!-- EDIT -->Book title here</span>
+                            </div>
+                            <div class="about-card__status-row">
+                                <span class="about-card__status-label">Focus</span>
+                                <span class="about-card__status-value"><!-- EDIT -->What you're building</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>

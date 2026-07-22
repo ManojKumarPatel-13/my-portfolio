@@ -1,3 +1,4 @@
+import { initintroAndHero } from "./modules/introAndHero.js";
 import { initAboutMe } from "./modules/about.js";
 import { initTechOrbit } from "./modules/tech-orbit.js";
 import { initTimeline } from "./modules/timeline.js";
@@ -6,6 +7,9 @@ import { initValidation } from "./modules/validation.js";
 import { initContactFaqAndFooter } from "./modules/contacts-faq.js";
 import { initBlogs } from "./modules/blogs.js";
 
+gsap.registerPlugin(ScrollTrigger);
+
+initintroAndHero()
 initAboutMe()
 initTechOrbit()
 initTimeline()

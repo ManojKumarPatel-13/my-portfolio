@@ -191,8 +191,12 @@ export function initTimeline() {
     const pageLeftEl = document.getElementById('page-left');
     const pageRightEl = document.getElementById('page-right');
     const leafEl = document.getElementById('book-leaf');
+    const leafFrontFaceEl = document.getElementById('leaf-front-face');
+    const leafBackFaceEl = document.getElementById('leaf-back-face');
     const leafFrontEl = document.getElementById('leaf-front');
     const leafBackEl = document.getElementById('leaf-back');
+    const leafBendFrontEl = document.getElementById('leaf-bend-front');
+    const leafBendBackEl = document.getElementById('leaf-bend-back');
     const navPrev = document.getElementById('nav-prev');
     const navNext = document.getElementById('nav-next');
     const progressEl = document.getElementById('timeline-progress');
@@ -205,7 +209,8 @@ export function initTimeline() {
     function resetLeaf() {
         leafEl.classList.remove('is-flipping', 'book-leaf--forward', 'book-leaf--backward',
             'book-leaf--opening-front', 'book-leaf--closing-front');
-        gsap.set(leafEl, { rotationY: 0 });
+        gsap.set(leafEl, { rotationY: 0, scaleX: 1 });
+        gsap.set([leafBendFrontEl, leafBendBackEl], { opacity: 0 });
     }
 
     function renderStatic() {
@@ -242,27 +247,38 @@ export function initTimeline() {
         leafBackEl.innerHTML = backHTML;
 
         const isForward = leafClass === 'book-leaf--forward';
-        leafFrontEl.classList.toggle('is-right-side', isForward);
-        leafFrontEl.classList.toggle('is-left-side', !isForward);
-        leafBackEl.classList.toggle('is-right-side', isForward);
-        leafBackEl.classList.toggle('is-left-side', !isForward);
+        leafFrontFaceEl.classList.toggle('is-right-side', isForward);
+        leafFrontFaceEl.classList.toggle('is-left-side', !isForward);
+        leafBackFaceEl.classList.toggle('is-right-side', isForward);
+        leafBackFaceEl.classList.toggle('is-left-side', !isForward);
 
         let midpointDone = false;
-        gsap.to(leafEl, {
-            rotationY: targetRotation,
-            duration: 0.9,
-            ease: 'power2.inOut',
-            onUpdate: function () {
-                if (!midpointDone && this.progress() >= 0.5) {
-                    midpointDone = true;
-                    onMidpoint();
-                }
-            },
+        const state = { rotationY: 0, scaleX: 1 };
+
+        gsap.timeline({
             onComplete: () => {
                 onComplete();
                 isFlipping = false;
             },
-        });
+        })
+            .to(state, {
+                rotationY: targetRotation,
+                duration: 1.0,
+                ease: 'power1.inOut',
+                onUpdate: function () {
+                    const progress = this.progress();
+                    gsap.set(leafEl, { rotationY: state.rotationY });
+
+                    const bend = Math.sin(progress * Math.PI);
+                    gsap.set(leafEl, { scaleX: 1 - bend * 0.06 });
+                    gsap.set([leafBendFrontEl, leafBendBackEl], { opacity: bend * 0.55 });
+
+                    if (!midpointDone && progress >= 0.5) {
+                        midpointDone = true;
+                        onMidpoint();
+                    }
+                },
+            });
     }
 
     function openCover() {
@@ -416,4 +432,46 @@ export function initTimeline() {
             setTimeout(() => { swipeLock = false; }, 900);
         }
     }, { passive: false });
+
+    const mobilePageEl = document.getElementById('mobile-page');
+    const mobileProgressEl = document.getElementById('mobile-progress');
+    const mobilePrevBtn = document.getElementById('mobile-prev');
+    const mobileNextBtn = document.getElementById('mobile-next');
+
+    const MOBILE_LAST_INDEX = INSIDE_PAGES.length + 1; // 0 = front cover, last = back cover
+
+    let mobileIndex = 0;
+
+    function renderMobileContent(index) {
+        if (index === 0) return renderCover('front');
+        if (index === MOBILE_LAST_INDEX) return renderCover('back');
+        return renderInsidePage(INSIDE_PAGES[index - 1], index - 1);
+    }
+
+    function renderMobile() {
+        mobilePageEl.classList.remove('is-entering');
+        mobilePageEl.innerHTML = renderMobileContent(mobileIndex);
+        // Force reflow so the enter animation replays every time
+        void mobilePageEl.offsetWidth;
+        mobilePageEl.classList.add('is-entering');
+
+        if (mobileIndex === 0) mobileProgressEl.textContent = 'Closed \u2014 tap to open';
+        else if (mobileIndex === MOBILE_LAST_INDEX) mobileProgressEl.textContent = 'Closed \u2014 the end';
+        else mobileProgressEl.textContent = `Page ${mobileIndex} / ${INSIDE_PAGES.length}`;
+    }
+
+    mobilePrevBtn.addEventListener('click', () => {
+        if (mobileIndex <= 0) return;
+        mobileIndex -= 1;
+        renderMobile();
+    });
+
+    mobileNextBtn.addEventListener('click', () => {
+        if (mobileIndex >= MOBILE_LAST_INDEX) return;
+        mobileIndex += 1;
+        renderMobile();
+    });
+
+    renderMobile();
+
 }

@@ -11,6 +11,90 @@
 
 <body>
 
+    <!-- NavBar -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar__inner">
+            <a href="#intro" class="navbar__logo">EDIT_NAME</a>
+            <ul class="navbar__links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="navbar__actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <circle cx="12" cy="12" r="4" />
+                        <path
+                            d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
+                    </svg>
+                </button>
+                <a href="#contact" class="navbar__cta">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Intro Section -->
+    <section class="intro" id="intro">
+
+        <!-- INTRO TEXT -->
+        <div class="intro__corner intro__corner--left" id="corner-left">
+            <h1 class="intro__heading">Hi, I'm Manoj.</h1>
+            <p class="intro__paragraph">Some see the architecture. Others see the story. I built room for both.</p>
+        </div>
+
+        <div class="intro__corner intro__corner--right" id="corner-right">
+            <p class="intro__cta">Scroll to see where they meet <span class="intro__cta-arrow">&darr;</span></p>
+        </div>
+
+        <!-- STAGE -->
+        <div class="intro__stage" id="drag-stage">
+
+            <div class="anchor anchor--center" id="anchor-center"></div>
+            <div class="anchor anchor--hero" id="anchor-hero"></div>
+
+            <div class="portrait-wrapper" id="portrait-wrapper">
+                <div class="portrait" id="portrait">
+
+                    <div class="portrait__image-wrap">
+                        <img class="portrait__layer" src="assets/portrait-base.webp" alt="Manoj - Base Portrait">
+                    </div>
+
+                    <!-- LENS MASKS -->
+                    <div class="portrait__mask" id="lens-tech">
+                        <div class="portrait__image-wrap">
+                            <img class="portrait__layer" src="assets/portrait-tech.webp" alt="Manoj - Tech Persona">
+                        </div>
+                    </div>
+
+                    <div class="portrait__mask" id="lens-book">
+                        <div class="portrait__image-wrap">
+                            <img class="portrait__layer" src="assets/portrait-book.webp" alt="Manoj - Bookish Persona">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- HERO TEXT -->
+            <div class="hero-text" id="hero-text">
+                <span class="hero-text_tag">&gt; // Manoj Kumar Patel</span>
+                <h2 class="hero-text__title">I build things that work, and write about the ones that don't.</h2>
+                <p class="hero-text__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque illum eos
+                    fugiat
+                    est dolores beatae architecto atque, blanditiis soluta?</p>
+                <div class="hero-text__ctas">
+                    <a href="#work" class="btn btn--solid">Explore My Work</a>
+                    <a href="#blog" class="btn btn--ghost">Read My Notes</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- About Me Section -->
     <section class="about" id="about">
 
@@ -25,19 +109,19 @@
         <div class="about__grid">
             <!-- LEFT: About me Parras -->
             <div class="about__parra">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui quia 
-                nesciunt cupiditate sit eum odio dolorum facilis reprehenderit sapiente, 
-                expedita impedit nam magni similique odit corrupti dolore quisquam obcaecati 
-                aspernatur earum maxime accusamus odit corrupti dolore quisquam obcaecati 
-                aspernatur earum maxime accusamus </p>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui quia 
-                nesciunt cupiditate sit eum odio dolorum facilis reprehenderit sapiente, 
-                expedita impedit nam magni similique odit corrupti dolore quisquam obcaecati 
-                aspernatur earum maxime accusamus </p>
-                <p>odit corrupti dolore quisquam obcaecati 
-                aspernatur earum maxime accusamus odit corrupti dolore quisquam obcaecati 
-                aspernatur earum maxime accusamus odit corrupti dolore quisquam obcaecati 
-                aspernatur earum maxime accusamus </p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui quia
+                    nesciunt cupiditate sit eum odio dolorum facilis reprehenderit sapiente,
+                    expedita impedit nam magni similique odit corrupti dolore quisquam obcaecati
+                    aspernatur earum maxime accusamus odit corrupti dolore quisquam obcaecati
+                    aspernatur earum maxime accusamus </p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui quia
+                    nesciunt cupiditate sit eum odio dolorum facilis reprehenderit sapiente,
+                    expedita impedit nam magni similique odit corrupti dolore quisquam obcaecati
+                    aspernatur earum maxime accusamus </p>
+                <p>odit corrupti dolore quisquam obcaecati
+                    aspernatur earum maxime accusamus odit corrupti dolore quisquam obcaecati
+                    aspernatur earum maxime accusamus odit corrupti dolore quisquam obcaecati
+                    aspernatur earum maxime accusamus </p>
             </div>
 
             <!-- RIGHT: Card Deck -->
@@ -108,10 +192,15 @@
 
                 <!-- The turning simiulation -->
                 <div class="book-leaf" id="book-leaf">
-                    <div class="book-leaf__face book-leaf__face--front" id="leaf-front"></div>
-                    <div class="book-leaf__face book-leaf__face--back" id="leaf-back"></div>
+                    <div class="book-leaf__face book-leaf__face--front" id="leaf-front-face">
+                        <div class="book-leaf__content" id="leaf-front"></div>
+                        <div class="book-leaf__bend" id="leaf-bend-front"></div>
+                    </div>
+                    <div class="book-leaf__face book-leaf__face--back" id="leaf-back-face">
+                        <div class="book-leaf__content" id="leaf-back"></div>
+                        <div class="book-leaf__bend" id="leaf-bend-back"></div>
+                    </div>
                 </div>
-
                 <!-- Just for the shadow effect -->
                 <div class="book-spine" aria-hidden="true"></div>
             </div>
@@ -124,10 +213,20 @@
         </div>
 
         <p class="timeline__progress" id="timeline-progress" aria-hidden="true"></p>
+
+        <div class="timeline__book-area-mobile">
+            <div class="book-mobile" id="book-mobile">
+                <div class="book-mobile__page" id="mobile-page"></div>
+                <button class="mobile-tap-zone mobile-tap-zone--left" id="mobile-prev"
+                    aria-label="Previous page"></button>
+                <button class="mobile-tap-zone mobile-tap-zone--right" id="mobile-next" aria-label="Next page"></button>
+            </div>
+            <p class="book-mobile__progress" id="mobile-progress"></p>
+        </div>
     </section>
 
     <!-- Projects -->
-    <section class="projects">
+    <section class="projects" id="projects">
         <div class="projects__head">
             <span class="projects-head__tag">// Projects</span>
             <h2 class="projects-head__title">A Gallery Of Things I Built</h2>
@@ -427,6 +526,7 @@
 
     <script type="module" src="js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </body>
 
 </html>

@@ -266,8 +266,8 @@ export function initintroAndHero() {
         });
 
         ScrollTrigger.create({
-            trigger: '.placeholder-next',
-            start: 'top bottom',
+            trigger: '.about',
+            start: 'top',
             onEnter: () => navbar.classList.add('is-pill'),
             onLeaveBack: () => navbar.classList.remove('is-pill'),
         });

@@ -285,11 +285,13 @@ export function initTechOrbit() {
 
     // Release Ring Lock (Start Spinnig Again) on pressinc esc and clicking outside the stage
     document.addEventListener("click", (e) => {
-        const ringName = clickedSvg.dataset.ring;
-        const spinEl = document.querySelector(`.ring-${ringName} .ring-spin`);
-        clickedSvg.classList.remove("is-active");
-        releaseRing(spinEl)
-        clickedSvg = null;
+        if (clickedSvg) {
+            const ringName = clickedSvg.dataset.ring;
+            const spinEl = document.querySelector(`.ring-${ringName} .ring-spin`);
+            clickedSvg.classList.remove("is-active");
+            releaseRing(spinEl);
+            clickedSvg = null;
+        }
     })
 
     document.addEventListener("keydown", (e) => {

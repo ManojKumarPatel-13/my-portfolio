@@ -1,58 +1,40 @@
 export function initTimeline() {
 
-    //  Place holder data
+    // The Digital Codex: Chapter Data
     const CHAPTERS = [
         {
             number: "01",
             tag: "Origins",
-            title: "Where It Started",
-            body: "EDIT: The first lines of code, the first real bug, the first time something actually worked.",
-            skills: ["HTML", "CSS", "Curiosity"],
+            title: "The Lockdown Loop",
+            body: "The journey began in the quiet isolation of lockdown. My days found a relentless rhythm: read, code, eat, sleep. I started wrestling with the early syntax of HTML, CSS, JS, and Python, alongside building a PHP pizza delivery site from a tutorial. Watching my own logic render dynamically on the screen was a revelation. The true turning point, however, arrived when an incredible mentor—Shraddha mam—recognized my stubborn curiosity and gifted me my first real programming book. That single spark ignited a lifelong obsession, turning a passing fascination into a disciplined pursuit.",
         },
         {
             number: "02",
-            tag: "First Steps",
-            title: "Learning to Build",
-            body: "EDIT: The jump from tutorials to actually building something of your own.",
-            skills: ["JavaScript", "Git", "Debugging"],
+            tag: "Open Source",
+            title: "The Local Host",
+            body: "Entering college shifted my momentum. Amidst settling into a new environment, a December obsession with GSoC and open-source took over. I began tearing through Eloquent JavaScript and wrestled heavily with the Vue.js documentation. While I didn't master the frameworks then, I conquered Git and GitHub. The greatest victory of that era wasn't writing a perfect app—it was the sheer, adrenaline-fueled thrill of successfully cloning and compiling the massive CircuitVerse repository on my local machine."
         },
         {
             number: "03",
-            tag: "Breaking Things",
-            title: "The Backend Rabbit Hole",
-            body: "EDIT: Where server-side logic entered the picture.",
-            skills: ["Node.js", "Express", "APIs"],
+            tag: "Rejection",
+            title: "Rejection & The Sprint",
+            body: "Back in the classroom, I laid a structured foundation in C and SQL, but I was hungry to build under pressure. I aimed for a high-stakes AI hackathon, only to face a harsh reality: my team was rejected before the event even started. It was a frustrating false start. Yet, the sting of missing out permanently hooked me on competitive building. Seeking redemption, I formed a new team and pivoted toward the prestigious Google Solution Challenge, entirely unaware of the chaos ahead.",
+            extraContent: [`We were late to the game. With only fifteen days on the clock and college projects piling up, it became a crash course in sheer survival. Relying heavily on momentum and "vibe coding," we stitched together and shipped StudentOS, my first major project. We didn't qualify for the second stage, but failure was secondary. Shipping a tangible product under fire taught me more about execution in two weeks than any tutorial ever could.`],
         },
         {
             number: "04",
-            tag: "Structure",
-            title: "Thinking in Systems",
-            body: "EDIT: The shift from writing code that works to writing code that scales.",
-            skills: ["Databases", "Architecture", "Design Patterns"],
+            tag: "Reality-Check",
+            title: "The Reality Check",
+            body: "Failing the Solution Challenge was the ultimate teacher. Looking back at the chaos of those fifteen days, I realized that true engineering is about much more than just rushing features. It requires extreme time management, clear team communication, and a solid foundation. The illusion of surface-level coding shattered. I learned that you cannot just stitch pieces together and hope they hold under pressure; you need the essential, underlying skills to actually architect a solution.",
         },
         {
             number: "05",
-            tag: "Leadership",
-            title: "Becoming a Technical Lead",
-            body: "EDIT: The moment responsibility shifted from just your own code to guiding a team\u2019s.",
-            skills: ["Mentorship", "Code Review", "Communication"],
-        },
-        {
-            number: "06",
-            tag: "Craft",
-            title: "Where Reading Meets Code",
-            body: "EDIT: How the literary side started shaping the engineering side.",
+            tag: "Full-Stack",
+            title: "The Full-Stack Pursuit",
+            body: "Determined to back up my ambition with actual skill, I used the semester break for an uncompromising reset. I dove relentlessly into core JavaScript, breaking down how the language truly executes under the hood until I built a confident command of it. While I am currently exploring React on the frontend, my true focus has been the server side, where I built a strong, reliable foundation in Node.js, Express, and MongoDB.",
             extraContent: [
-                "EDIT: Where things stand today, and what you\u2019re actively building toward.",
-            ],
-            skills: ["Technical Writing", "Refactoring", "Clarity"],
-        },
-        {
-            number: "07",
-            tag: "Now",
-            title: "What\u2019s Next",
-            body: "EDIT: Where things stand today, and what you\u2019re actively building toward.",
-            skills: ["AI Workflows", "Python", "Growth"],
+                "Today, my curiosity has shifted toward the complexities of System Design and advanced backend architecture. The goal is no longer just building basic APIs; it is about learning how to engineer robust systems from the ground up."
+            ]
         },
     ];
 
@@ -67,8 +49,6 @@ export function initTimeline() {
 
         CHAPTERS.forEach((ch) => {
             CHAPTER_START_INDEX[ch.number] = pages.length;
-            console.log(CHAPTER_START_INDEX);
-
             pages.push({ type: "chapter", chapter: ch });
             if (ch.extraContent) {
                 ch.extraContent.forEach((extra) => {
@@ -86,7 +66,6 @@ export function initTimeline() {
 
     const INSIDE_PAGES = buildInsidePages();
     const TOTAL_SPREADS = INSIDE_PAGES.length / 2;
-    console.log(INSIDE_PAGES)
 
     // Render page
     function renderInsidePage(page, indexInBook) {
@@ -103,7 +82,7 @@ export function initTimeline() {
                     <div class="${contentClass} page-content--center surface-paper">
                         <p class="page-tag">The Journey</p>
                         <h2 class="page-title">Manoj Kumar Patel</h2>
-                        <p class="page-subtitle">A chronicle of how the code \u2014 and the person writing it \u2014 grew up.</p>
+                        <p class="page-subtitle">A chronicle of how the code &mdash; and the person writing it &mdash; grew up.</p>
                         ${num}
                     </div>`;
 
@@ -114,7 +93,7 @@ export function initTimeline() {
                         <h3 class="page-title">Table of Contents</h3>
                         <ul class="toc-list">
                             <li><span>Preface</span><span>04</span></li>
-                            ${CHAPTERS.map((c) => `<li><span>Ch. ${c.number} \u2014 ${c.title}</span><span>${CHAPTER_START_INDEX[c.number] + 1}</span></li>`).join("")}
+                            ${CHAPTERS.map((c) => `<li><span>Ch. ${c.number} &mdash; ${c.title}</span><span>${CHAPTER_START_INDEX[c.number] + 1}</span></li>`).join("")}
                             <li><span>Closing</span><span>${INSIDE_PAGES.length - 1}</span></li>
                         </ul>
                         ${num}
@@ -125,7 +104,7 @@ export function initTimeline() {
                     <div class="${contentClass} surface-paper">
                         <p class="page-tag">Preface</p>
                         <h3 class="page-title">Before We Begin</h3>
-                        <p class="page-body">EDIT: A short, honest note on why this timeline exists \u2014 not a resume, a record of how each stage actually happened.</p>
+                        <p class="page-body">This is not just a resume. It is a record of curiosity, late-night debugging, and the deliberate transition from writing mere syntax to engineering real systems. Every chapter represents a shift in perspective.</p>
                         ${num}
                     </div>`;
 
@@ -133,15 +112,13 @@ export function initTimeline() {
                 const c = page.chapter;
                 return `
                     <div class="${contentClass} surface-paper">
-                        <p class="page-tag">Chapter ${c.number} \u2014 ${c.tag}</p>
+                        <p class="page-tag">Chapter ${c.number} &mdash; ${c.tag}</p>
                         <h3 class="page-title">${c.title}</h3>
                         <hr class="chapter-divider">
                         <p class="page-body">${c.body}</p>
                         <div class="page-footnote">
-                            Skills touched:
-                            <div class="skills-row">${c.skills.map((s) => `<span class="skill-tag">${s}</span>`).join("")}</div>
+                            Page ${indexInBook + 1}
                         </div>
-                        ${num}
                     </div>`;
             }
 
@@ -149,9 +126,11 @@ export function initTimeline() {
                 const c = page.chapter;
                 return `
                     <div class="${contentClass} surface-paper">
-                        <p class="chapter-continued-tag">Ch. ${c.number} \u2014 ${c.title} (cont'd)</p>
+                        <p class="chapter-continued-tag">Ch. ${c.number} &mdash; ${c.title} (cont'd)</p>
                         <p class="page-body">${page.body}</p>
-                        ${num}
+                        <div class="page-footnote">
+                            Page ${indexInBook + 1}
+                        </div>
                     </div>`;
             }
 
@@ -160,7 +139,7 @@ export function initTimeline() {
                     <div class="${contentClass} page-content--center surface-paper">
                         <p class="page-tag">The Last Page</p>
                         <h3 class="page-title">To Be Continued</h3>
-                        <p class="page-body">EDIT: A short closing line \u2014 this story is still being written.</p>
+                        <p class="page-body">The terminal remains open. The next chapter is currently compiling.</p>
                         ${num}
                     </div>`;
 
@@ -178,12 +157,12 @@ export function initTimeline() {
     }
 
     function renderCover(side) {
-        const title = side === 'front' ? '[Your Name]' : '';
+        const title = side === 'front' ? 'Manoj Kumar Patel' : '';
         const sub = side === 'front' ? 'The Digital Codex' : 'Fin.';
         return `
             <div class="page-content page-content--center page-cover surface-leather">
                 <span class="page-cover__mark">&#10022;</span>
-                <h2 class="page-title"><!-- EDIT: your name -->${title}</h2>
+                <h2 class="page-title">${title}</h2>
                 <p class="page-subtitle">${sub}</p>
             </div>`;
     }
@@ -438,7 +417,7 @@ export function initTimeline() {
     const mobilePrevBtn = document.getElementById('mobile-prev');
     const mobileNextBtn = document.getElementById('mobile-next');
 
-    const MOBILE_LAST_INDEX = INSIDE_PAGES.length + 1; // 0 = front cover, last = back cover
+    const MOBILE_LAST_INDEX = INSIDE_PAGES.length + 1;
 
     let mobileIndex = 0;
 
@@ -451,7 +430,6 @@ export function initTimeline() {
     function renderMobile() {
         mobilePageEl.classList.remove('is-entering');
         mobilePageEl.innerHTML = renderMobileContent(mobileIndex);
-        // Force reflow so the enter animation replays every time
         void mobilePageEl.offsetWidth;
         mobilePageEl.classList.add('is-entering');
 

@@ -2087,7 +2087,7 @@ p.blogs-card__preview {
   color: var(--card-ink-muted);
   margin: 0;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
   flex: 1;

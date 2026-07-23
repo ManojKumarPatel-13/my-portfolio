@@ -6,8 +6,8 @@ export function initAboutMe() {
             iconName: "code",
             cardType: "paragraph",
             body: {
-                text: "Leads with architecture — believes most bugs are design decisions that haven't been made yet.",
-                tags: ["Systems", "Mentoring", "Clean Code"],
+                text: "Code is read far more often than it is written. I believe in clean architecture, writing maintainable logic, and treating every bug as a design decision that hasn't been made yet.",
+                tags: ["Clean Code", "Systems", "Scalability"],
             },
         },
         {
@@ -16,12 +16,12 @@ export function initAboutMe() {
             iconName: "terminal",
             cardType: "list",
             body: {
-                description: "My daily drivers and editor preferences.",
+                description: "My daily drivers and current tech obsessions.",
                 items: [
-                    "VS Code (Tokyo Night)",
-                    "Warp Terminal",
-                    "Figma",
-                    "Vim Motions",
+                    "VS Code & Ghostty",
+                    "Next.js / Node / Express",
+                    "Docker (Containerization)",
+                    "Redis (Caching & Speed)"
                 ],
             },
         },
@@ -31,8 +31,12 @@ export function initAboutMe() {
             iconName: "book-open",
             cardType: "list",
             body: {
-                description: "Books that completely shifted my perspective.",
-                items: ["Atomic Habits", "1984 by George Orwell", "Sapiens"],
+                description: "The stories that completely shifted my perspective.",
+                items: [
+                    "The Alchemist",
+                    "The Three-Body Problem",
+                    "Anatomy of a Misfit"
+                ],
             },
         },
         {
@@ -41,8 +45,12 @@ export function initAboutMe() {
             iconName: "monitor",
             cardType: "list",
             body: {
-                description: "Ergonomics and minimalism to stay in the zone.",
-                items: ['M2 MacBook Pro 14"', "Keychron Q1 Pro", "MX Master 3S"],
+                description: "Keeping it highly portable and distraction-free.",
+                items: [
+                    "M1 MacBook Air",
+                    "Minimalist Setup",
+                    "Deep Focus Music"
+                ],
             },
         },
         {
@@ -52,8 +60,9 @@ export function initAboutMe() {
             cardType: "split",
             body: {
                 data: [
-                    { label: "READING", value: "The Pragmatic Programmer" },
-                    { label: "FOCUS", value: "Building a personal portfolio" },
+                    { label: "READING", value: "Clean Code & The Martian" },
+                    { label: "BUILDING", value: "JS Web IDE (Advanced Debugger & Graph)" },
+                    { label: "LEARNING", value: "Backend Systems & C++ DSA" },
                 ],
             },
         },

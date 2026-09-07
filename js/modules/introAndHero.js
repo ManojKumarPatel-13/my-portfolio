@@ -83,8 +83,8 @@ export function initintroAndHero() {
         lens.book.radius = radius;
 
         // Viewport-absolute resting coordinates
-        lens.tech.restX = frameRect.left + imgWidth * techXFrac + techXOffset;
-        lens.tech.restY = frameRect.top + topPadPx + techYScale * techYFrac;
+        lens.tech.restX = frameRect.left + imgWidth * techXFrac + techXOffset + 20;
+        lens.tech.restY = frameRect.top + topPadPx + techYScale * techYFrac + 18;
         lens.book.restX = frameRect.left + imgWidth * bookXFrac;
         lens.book.restY = frameRect.top + topPadPx + imgHeight * bookYFrac;
 
